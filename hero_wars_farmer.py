@@ -3,6 +3,8 @@ import time
 
 import pyautogui
 
+DEFAULT_TIME = 90
+
 
 class HeroWarsFarmer:
     def __init__(self, current_chapter=1):
@@ -31,7 +33,7 @@ class HeroWarsFarmer:
             time.sleep(0.5)
             self.current_chapter += 1
 
-    def run_level(self, city, my_time=70):
+    def run_level(self, city, my_time=DEFAULT_TIME):
         self.go_to_chapter(city["chapter"])
         self.move_and_click(city, .5)
         self.move_and_click(self.controls["start"], .2)
@@ -50,6 +52,7 @@ class HeroWarsFarmer:
                 cities.append((highest_level_city, quantity))
             except ValueError:
                 print("No cities with", loot, "found")
+        print(cities)
         return cities
 
     def farm_cities(self, farm_list):
