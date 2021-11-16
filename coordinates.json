@@ -1,409 +1,44 @@
 {
   "general": [
-    {
-      "name": "reload",
-      "position": [
-        95,
-        64
-      ]
-    },
-    {
-      "name": "closeAdd",
-      "position": [
-        904,
-        209
-      ]
-    },
-    {
-      "name": "closeAdd2",
-      "position": [
-        874,
-        203
-      ]
-    },
-    {
-      "name": "enterCampaign",
-      "position": [
-        361,
-        446
-      ]
-    },
-    {
-      "name": "auto",
-      "position": [
-        918,
-        702
-      ]
-    },
-    {
-      "name": "battle",
-      "position": [
-        893,
-        728
-      ]
-    },
-    {
-      "name": "start",
-      "position": [
-        729,
-        662
-      ]
-    },
-    {
-      "name": "cont",
-      "position": [
-        609,
-        704
-      ]
-    },
-    {
-      "name": "chapter_down",
-      "position": [
-        43,
-        482
-      ]
-    },
-    {
-      "name": "chapter_up",
-      "position": [
-        975,
-        481
-      ]
-    }
+    {"name": "reload", "position": [95, 64]},
+    {"name": "closeAdd", "position": [904, 209]},
+    {"name": "closeAdd2", "position": [874, 203]},
+    {"name": "enterCampaign", "position": [361, 446]},
+    {"name": "auto", "position": [918, 702]},
+    {"name": "battle", "position": [893, 728]},
+    {"name": "start", "position": [729, 662]},
+    {"name": "cont", "position": [609, 704]},
+    {"name": "chapter_down", "position": [43, 482]},
+    {"name": "chapter_up", "position": [975, 481]}
   ],
   "cities": [
-    {
-      "name": "outskirtsWill",
-      "chapter": 2,
-      "position": [
-        383,
-        444
-      ],
-      "limited": true,
-      "loot": [
-        "gallahad"
-      ]
-    },
-    {
-      "name": "magicthicket",
-      "chapter": 2,
-      "position": [
-        900,
-        444
-      ],
-      "limited": true,
-      "loot": [
-        "astorath"
-      ]
-    },
-    {
-      "name": "lavafracture",
-      "chapter": 2,
-      "position": [
-        904,
-        650
-      ],
-      "limited": true,
-      "loot": [
-        "aurora"
-      ]
-    },
-    {
-      "name": "livingfracture",
-      "chapter": 3,
-      "position": [
-        739,
-        424
-      ],
-      "limited": true,
-      "loot": [
-        "keira"
-      ]
-    },
-    {
-      "name": "frontiercamp",
-      "chapter": 3,
-      "position": [
-        780,
-        621
-      ],
-      "loot": [
-        "dragonHeart"
-      ]
-    },
-    {
-      "name": "orcishPat",
-      "chapter": 3,
-      "position": [
-        664,
-        674
-      ],
-      "loot": [
-        "swordOfStorms"
-      ]
-    },
-    {
-      "name": "afterlife",
-      "chapter": 4,
-      "position": [
-        670,
-        517
-      ],
-      "loot": [
-        "sacDagger",
-        "portalGem",
-        "bandOfEnlightenment"
-      ]
-    },
-    {
-      "name": "drywind",
-      "chapter": 4,
-      "position": [
-        233,
-        708
-      ],
-      "loot": [
-        "needle"
-      ]
-    },
-    {
-      "name": "edgeofdusk",
-      "chapter": 4,
-      "position": [
-        303,
-        636
-      ],
-      "loot": [
-        "rosary"
-      ]
-    },
-    {
-      "name": "ashesCoal",
-      "chapter": 4,
-      "position": [
-        257,
-        383
-      ],
-      "loot": [
-        "lamp",
-        "fireSword"
-      ]
-    },
-    {
-      "name": "worldsEnd",
-      "chapter": 4,
-      "position": [
-        406,
-        416
-      ],
-      "loot": [
-        "boots"
-      ]
-    },
-    {
-      "name": "graniteOfSilence",
-      "chapter": 4,
-      "position": [
-        727,
-        650
-      ],
-      "loot": [
-        "hood"
-      ]
-    },
-    {
-      "name": "trialDarkness",
-      "chapter": 4,
-      "position": [
-        85,
-        471
-      ],
-      "loot": [
-        "lute"
-      ]
-    },
-    {
-      "name": "bottomlessChasm",
-      "chapter": 4,
-      "position": [
-        397,
-        538
-      ],
-      "loot": [
-        "cuirass"
-      ]
-    },
-    {
-      "name": "Shepard's Lands",
-      "chap": 4,
-      "limited": true,
-      "position": [
-        1,
-        1
-      ],
-      "loot": []
-    },
-    {
-      "name": "necropolis",
-      "chapter": 4,
-      "position": [
-        544,
-        625
-      ],
-      "limited": true,
-      "loot": [
-        "keira"
-      ]
-    },
-    {
-      "name": "obelisk",
-      "chapter": 5,
-      "position": [
-        292,
-        446
-      ],
-      "limited": true,
-      "loot": [
-        "gallahad"
-      ]
-    },
-    {
-      "name": "flourishinglife",
-      "chapter": 5,
-      "position": [
-        317,
-        704
-      ],
-      "limited": true,
-      "loot": [
-        "aurora"
-      ]
-    },
-    {
-      "name": "drownersbridge",
-      "chapter": 5,
-      "position": [
-        487,
-        501
-      ],
-      "limited": true,
-      "loot": [
-        "astaroth"
-      ]
-    },
-    {
-      "name": "trappersnets",
-      "chapter": 6,
-      "position": [
-        791,
-        488
-      ],
-      "loot": [
-        "handOfGlory",
-        "portalGem",
-        "lostRing"
-      ]
-    },
-    {
-      "name": "eternalnight",
-      "chapter": 6,
-      "position": [
-        639,
-        456
-      ],
-      "loot": [
-        "lute",
-        "shield",
-        "handOfGlory"
-      ]
-    },
-    {
-      "name": "fridgidPlace",
-      "chapter": 6,
-      "position": [
-        552,
-        543
-      ],
-      "loot": [
-        "dragonHeart",
-        "screamBlad",
-        "dragSlayer"
-      ]
-    },
-    {
-      "name": "mistyCliff",
-      "chapter": 6,
-      "position": [
-        462,
-        536
-      ],
-      "loot": [
-        "needle",
-        "sirensSongRecipe",
-        "branchOfAntiaris"
-      ]
-    },
-    {
-      "name": "tarotsArches",
-      "chapter": 6,
-      "position": [
-        319,
-        409
-      ],
-      "loot": [
-        "serenityStone",
-        "trackersBoots",
-        "dragonToothRecipe"
-      ]
-    },
-    {
-      "name": "bogger",
-      "chapter": 6,
-      "position": [
-        427,
-        711
-      ],
-      "loot": [
-        "funtotem",
-        "skullcrusher",
-        "cainsseal"
-      ]
-    },
-    {
-      "name": "morthchrones",
-      "chapter": 6,
-      "position": [
-        378,
-        523
-      ],
-      "loot": [
-        "rosary",
-        "pastorseal"
-      ]
-    },
-    {
-      "name": "gnawedbones",
-      "chapter": 7,
-      "position": [
-        278,
-        497
-      ],
-      "loot": [
-        "sage",
-        "crown"
-      ]
-    },
-    {
-      "name": "tollgate",
-      "chapter": 7,
-      "position": [
-        1,
-        386
-      ],
-      "limited": true,
-      "loot": [
-        "keira"
-      ]
-    }
+    {"name": "outskirtsWill", "chapter": 2, "position": [383, 444], "limited": true, "loot": ["gallahad"]},
+    {"name": "magicthicket", "chapter": 2, "position": [900, 444], "limited": true, "loot": ["astorath"]},
+    {"name": "lavafracture", "chapter": 2, "position": [904, 650], "limited": true, "loot": ["aurora"]},
+    {"name": "livingfracture", "chapter": 3, "position": [739, 424], "limited": true, "loot": ["keira"]},
+    {"name": "frontiercamp", "chapter": 3, "position": [780, 621], "loot": ["dragonHeart"]},
+    {"name": "orcishPat", "chapter": 3, "position": [664, 674], "loot": ["swordOfStorms"]},
+    {"name": "afterlife", "chapter": 4, "position": [670, 517], "loot": ["sacDagger", "portalGem", "bandOfEnlightenment"]},
+    {"name": "drywind", "chapter": 4, "position": [233, 708], "loot": ["needle"]},
+    {"name": "edgeofdusk", "chapter": 4, "position": [303, 636], "loot": ["rosary"]},
+    {"name": "ashesCoal", "chapter": 4, "position": [257, 383], "loot": ["lamp", "fireSword"]},
+    {"name": "worldsEnd", "chapter": 4, "position": [406, 416], "loot": ["boots"]},
+    {"name": "graniteOfSilence", "chapter": 4, "position": [727, 650], "loot": ["hood"]},
+    {"name": "trialDarkness", "chapter": 4, "position": [85, 471], "loot": ["lute"]},
+    {"name": "bottomlessChasm", "chapter": 4, "position": [397, 538], "loot": ["cuirass"]},
+    {"name": "Shepard's Lands", "chap": 4, "limited": true, "position": [1, 1], "loot": []},
+    {"name": "necropolis", "chapter": 4, "position": [544, 625], "limited": true, "loot": ["keira"]},
+    {"name": "obelisk", "chapter": 5, "position": [292, 446], "limited": true, "loot": ["gallahad"]},
+    {"name": "flourishinglife", "chapter": 5, "position": [317, 704], "limited": true, "loot": ["aurora"]},
+    {"name": "drownersbridge", "chapter": 5, "position": [487, 501], "limited": true, "loot": ["astaroth"]},
+    {"name": "trappersnets", "chapter": 6, "position": [791, 488], "loot": ["handOfGlory", "portalGem", "lostRing"]},
+    {"name": "eternalnight", "chapter": 6, "position": [639, 456], "loot": ["lute", "shield", "handOfGlory"]},
+    {"name": "fridgidPlace", "chapter": 6, "position": [552, 543], "loot": ["dragonHeart", "screamBlad", "dragSlayer"]},
+    {"name": "mistyCliff", "chapter": 6, "position": [462, 536], "loot": ["needle", "sirensSongRecipe", "branchOfAntiaris"]},
+    {"name": "tarotsArches", "chapter": 6, "position": [319, 409], "loot": ["serenityStone", "trackersBoots", "dragonToothRecipe"]},
+    {"name": "bogger", "chapter": 6, "position": [427, 711], "loot": ["funtotem", "skullcrusher", "cainsseal"]},
+    {"name": "morthchrones", "chapter": 6, "position": [378, 523], "loot": ["rosary", "pastorseal"]},
+    {"name": "gnawedbones", "chapter": 7, "position": [278, 497], "loot": ["sage", "crown"]},
+    {"name": "tollgate", "chapter": 7, "position": [1, 386], "limited": true, "loot": ["keira"]}
   ]
 }
