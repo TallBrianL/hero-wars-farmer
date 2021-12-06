@@ -17,11 +17,10 @@ loot_desired = [
     ("flamingHeart", 66)
 ]
 
-MAX_CHAPTER_TO_FARM = 7
-MAX_CHAPTER_AVAILABLE = 9
+MAX_CHAPTER_TO_FARM = 8
 
 if __name__ == '__main__':
-    hwf = HeroWarsFarmer(MAX_CHAPTER_AVAILABLE)
+    hwf = HeroWarsFarmer()
 
     cities_to_farm = hwf.select_cities(loot_desired, MAX_CHAPTER_TO_FARM)
 
