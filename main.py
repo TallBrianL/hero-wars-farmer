@@ -1,8 +1,20 @@
 from hero_wars_farmer import HeroWarsFarmer
 
 loot_desired = [
-    ("lionArmor", 200),
-    ("astaroth", 9)
+    ("pastorsSeal", 22),
+    ("serenityStone", 14),
+    ("lionArmor", 26),
+    # ("scorchingQuiver", 6),
+    # ("dragonHeart", 26),
+    ("lute", 10),
+    # ("sacredRosary", 15),
+    # ("dragonShield", 15),
+    # ("enchantedLute", 20),
+    # ("magicHat", 25),
+    # ("needle", 20),
+    ("handOfGlory", 20),
+    # ("astaroth", 9),
+    ("flamingHeart", 66)
 ]
 
 MAX_CHAPTER_TO_FARM = 7
