@@ -9,7 +9,10 @@
     {"name": "start", "position": [729, 662]},
     {"name": "cont", "position": [609, 704]},
     {"name": "chapter_down", "position": [43, 482]},
-    {"name": "chapter_up", "position": [975, 481]}
+    {"name": "chapter_up", "position": [975, 481]},
+    {"name": "tower_buff_chest", "position": [669, 525]},
+    {"name": "tower_buff_close", "position": [809, 286]},
+    {"name": "tower_buff_proceed", "position": [853, 462]}
   ],
   "cities": [
     {"name": "outskirtsWill", "chapter": 2, "position": [383, 444], "limited": true, "loot": ["gallahad"]},
