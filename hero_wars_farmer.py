@@ -20,6 +20,7 @@ class HeroWarsFarmer:
             raise ValueError("Could not find Hero Wars logo, farmer NOT initialized")
         self.offset = (logo_pos[0] - expected_logo_pos[0], logo_pos[1] - expected_logo_pos[1])
         self.controls = list_to_dict(coordinates["Campaign Controls"])
+        self.AirshipControls = list_to_dict(coordinates["Airship Controls"])
         self.cities = list_to_dict(coordinates["Campaign Cities"])
         self.home = list_to_dict(coordinates["Home Screen"])
 
@@ -37,7 +38,9 @@ class HeroWarsFarmer:
         pyautogui.click(*loc)
 
     @staticmethod
-    def locate_file_any_suffix(needle, haystack):
+    def locate_file_any_suffix(needle, haystack=None):
+        if not haystack:
+            haystack = pyautogui.screenshot()
         for f in glob.glob('screenshots\\' + needle + "*.PNG"):
             loc = pyautogui.locate(f, haystack)
             if loc:
@@ -49,7 +52,7 @@ class HeroWarsFarmer:
         loc = None
         count = 0
         while not loc and count < max_iters:
-            loc = pyautogui.locateCenterOnScreen('screenshots\\' + image + '.PNG')
+            loc = HeroWarsFarmer.locate_file_any_suffix(image)
             time.sleep(0.1)
             count += 1
         if not loc:
@@ -67,7 +70,93 @@ class HeroWarsFarmer:
         temp = pyautogui.screenshot()
         cropped = temp.crop((*pos, *span))
         my_string = pytesseract.image_to_string(cropped)
-        return my_string.split()
+        return my_string
+
+    @staticmethod
+    def detect_battle_complete():
+        t = 0
+        while t < 580:
+            floor_screen_capture = pyautogui.screenshot()
+            loc = HeroWarsFarmer.locate_file_any_suffix('victory', floor_screen_capture)
+            if loc:
+                print('Victory!')
+                return 0
+            loc = HeroWarsFarmer.locate_file_any_suffix('defeat', floor_screen_capture)
+            if loc:
+                print('Defeat :(')
+                return 1
+
+            time.sleep(0.5)
+            t += 0.5
+            print('.', end='')
+        raise RuntimeError("Battle End Not Detected, Timeout")
+
+    # --------------------------------------------------
+    # STARTUP
+    def start_up(self):
+        self.run_gifts()
+        self.open_heroic_chest()
+        self.run_outland()
+        self.run_airship()
+
+    def run_gifts(self):
+        self.click_item(self.home["Gifts"], 1)
+        HeroWarsFarmer.detect_and_push('send')
+        try:
+            HeroWarsFarmer.detect_and_push('send_presents', 1)
+        except RuntimeError:
+            print('Gifts already sent')
+        HeroWarsFarmer.detect_and_push('close')
+        HeroWarsFarmer.detect_and_push('close')
+
+    def open_heroic_chest(self):
+        self.click_item(self.home["Heroic Chest"], 1)
+        try:
+            HeroWarsFarmer.detect_and_push('open_chest', 1)
+        except RuntimeError:
+            print('Heroic chest already open')
+        HeroWarsFarmer.detect_and_push('close')
+
+    def run_outland(self):
+        self.click_item(self.home["Outland"], 1)
+        for _ in range(3):
+            HeroWarsFarmer.detect_and_push('outland_next')
+            try:
+                HeroWarsFarmer.detect_and_push('claim_reward')
+            except RuntimeError:
+                print('Outland reward already claim already made')
+            try:
+                HeroWarsFarmer.detect_and_push('open_chests')
+                HeroWarsFarmer.detect_and_push('open')
+                HeroWarsFarmer.detect_and_push('close')
+            except RuntimeError:
+                print('Outland chest already open')
+        HeroWarsFarmer.detect_and_push('close')
+
+    def run_airship(self):
+        self.click_item(self.home["Airship"], 1)
+        self.click_item(self.AirshipControls["Valkyrie"], 0.2)
+        try:
+            self.detect_and_push('collect')
+        except RuntimeError:
+            print('Valkyrie already collected')
+        self.detect_and_push('close')
+        self.detect_and_push('Expeditions')
+        while True:
+            try:
+                HeroWarsFarmer.detect_and_push('red_button')
+                try:
+                    HeroWarsFarmer.detect_and_push('collect')
+                except RuntimeError:
+                    HeroWarsFarmer.detect_and_push('start')
+                    HeroWarsFarmer.detect_and_push('brownAuto')
+                    HeroWarsFarmer.detect_and_push('start')
+                    HeroWarsFarmer.detect_and_push('close')
+            except RuntimeError:
+                print('No more expeditions')
+                break
+        self.detect_and_push('close')  # to valkyrie page
+        self.detect_and_push('close')  # to home page
 
     # --------------------------------------------------
     # CAMPAIGN RUNNER
@@ -97,9 +186,15 @@ class HeroWarsFarmer:
         self.go_to_chapter(city["chapter"])
         self.click_item(city, .5)
         self.click_item(self.controls["start"], 0.2)
-        HeroWarsFarmer.detect_and_push('to_battle')
+        try:
+            HeroWarsFarmer.detect_and_push('to_battle')
+        except RuntimeError:
+            print('To battle not detected, attempting to close ad screen')
+            HeroWarsFarmer.detect_and_push('close')
+            HeroWarsFarmer.detect_and_push('to_battle')
         HeroWarsFarmer.detect_and_push('auto_off', 100)
         HeroWarsFarmer.detect_battle_complete()
+        HeroWarsFarmer.detect_and_push('continue')
 
     @staticmethod
     def fetch_loot_list():
@@ -134,7 +229,7 @@ class HeroWarsFarmer:
         while True:
             self.run_tower_floor()
             print('sleeping for 2')
-            time.sleep(2)
+            time.sleep(1)
 
     def run_tower_floor(self):
         print('detecting floor')
@@ -176,9 +271,9 @@ class HeroWarsFarmer:
         if loc:
             HeroWarsFarmer.click_location(loc, 0.2)
         else:
-            HeroWarsFarmer.detect_and_push('tower_to_battle')
+            HeroWarsFarmer.detect_and_push('tower_to_battle', 1)
         try:
-            HeroWarsFarmer.detect_and_push('tower_battle_skip')
+            HeroWarsFarmer.detect_and_push('tower_battle_skip', 1)
             return 0
         except RuntimeError:
             print('could not skip')
@@ -186,27 +281,7 @@ class HeroWarsFarmer:
         HeroWarsFarmer.detect_and_push('to_battle')
         HeroWarsFarmer.detect_and_push('auto_off', 100)
         HeroWarsFarmer.detect_battle_complete()
-
-    @staticmethod
-    def detect_battle_complete():
-        t = 0
-        while t < 180:
-            floor_screen_capture = pyautogui.screenshot()
-            loc = HeroWarsFarmer.locate_file_any_suffix('victory', floor_screen_capture)
-            if loc:
-                print('Victory!')
-                HeroWarsFarmer.detect_and_push('continue')
-                return 0
-            loc = HeroWarsFarmer.locate_file_any_suffix('defeat', floor_screen_capture)
-            if loc:
-                print('Defeat :(')
-                HeroWarsFarmer.detect_and_push('continue')
-                return 1
-
-            time.sleep(0.5)
-            t += 0.5
-            print('.', end='')
-        raise RuntimeError("Battle End Not Detected, Timeout")
+        HeroWarsFarmer.detect_and_push('ok')
 
     def run_buff_floor(self, loc=None):
         print('running buff floor')
@@ -248,4 +323,5 @@ def list_to_dict(item_list: list):
 
 if __name__ == '__main__':
     hwf = HeroWarsFarmer()
-    hwf.run_tower()
+    # hwf.start_up()
+    hwf.run_airship()
