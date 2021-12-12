@@ -14,13 +14,14 @@ class HeroWarsFarmer:
         self.current_chapter = None
         with open('coordinates.json') as coordinate_file:
             coordinates = json.load(coordinate_file)
-            expected_logo_pos = (505, 121)
-            logo_pos = pyautogui.locateCenterOnScreen('screenshots\\heroWarsTitleIcon.PNG')
-            if not logo_pos:
-                raise ValueError("Could not find Hero Wars logo, farmer NOT initialized")
-            self.offset = (logo_pos[0] - expected_logo_pos[0], logo_pos[1] - expected_logo_pos[1])
-            self.controls = list_to_dict(coordinates["general"])
-            self.cities = list_to_dict(coordinates["cities"])
+        expected_logo_pos = (505, 121)
+        logo_pos = pyautogui.locateCenterOnScreen('screenshots\\heroWarsTitleIcon.PNG')
+        if not logo_pos:
+            raise ValueError("Could not find Hero Wars logo, farmer NOT initialized")
+        self.offset = (logo_pos[0] - expected_logo_pos[0], logo_pos[1] - expected_logo_pos[1])
+        self.controls = list_to_dict(coordinates["Campaign Controls"])
+        self.cities = list_to_dict(coordinates["Campaign Cities"])
+        self.home = list_to_dict(coordinates["Home Screen"])
 
     def apply_offset(self, pos):
         return pos[0] + self.offset[0], pos[1] + self.offset[1]
@@ -71,7 +72,7 @@ class HeroWarsFarmer:
     # --------------------------------------------------
     # CAMPAIGN RUNNER
     def enter_campaign(self):
-        self.click_item(self.controls["enterCampaign"], 1)
+        self.click_item(self.home["Campaign"], 1)
         self.current_chapter = self.get_current_chapter()
 
     def get_current_chapter(self):
@@ -100,8 +101,16 @@ class HeroWarsFarmer:
         HeroWarsFarmer.detect_and_push('auto_off', 100)
         HeroWarsFarmer.detect_battle_complete()
 
-    def select_cities(self, loot_desired, max_level):
+    @staticmethod
+    def fetch_loot_list():
+        with open('farm_list.json') as farm_list_file:
+            farm_list = json.load(farm_list_file)
+        farm_list = [(entry['name'], entry['quantity']) for entry in farm_list['farm_list']]
+        return farm_list
+
+    def select_cities(self, max_level):
         cities = []
+        loot_desired = HeroWarsFarmer.fetch_loot_list()
         for [loot, quantity] in loot_desired:
             cities_with_loot = [city for city in self.cities.values() if loot in city["loot"]]
             cities_within_maxlevel = [city for city in cities_with_loot if city["chapter"] <= max_level]

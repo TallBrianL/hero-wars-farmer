@@ -1,0 +1,18 @@
+{
+  "farm_list": [
+    {"name": "pastorsSeal", "quantity": 20},
+    {"name": "serenityStone", "quantity": 20},
+    {"name": "lionArmor", "quantity": 20},
+    {"name": "scorchingQuiver", "quantity": 20},
+    {"name": "dragonHeart", "quantity": 20},
+    {"name": "lute", "quantity": 20},
+    {"name": "sacredRosary", "quantity": 20},
+    {"name": "dragonShield", "quantity": 20},
+    {"name": "enchantedLute", "quantity": 20},
+    {"name": "magicHat", "quantity": 20},
+    {"name": "needle", "quantity": 20},
+    {"name": "handOfGlory", "quantity": 20},
+    {"name": "astaroth", "quantity": 20},
+    {"name": "flamingHeart", "quantity": 20}
+  ]
+}

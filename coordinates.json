@@ -1,9 +1,23 @@
 {
-  "general": [
+  "Home Screen": [
+    {"name": "Outland", "position": [378, 210]},
+    {"name": "Airship", "position": [536, 253]},
+    {"name": "Campaign", "position": [361, 446]},
+    {"name": "Grand Arena", "position": [715, 320]},
+    {"name": "Arena", "position": [604, 447]},
+    {"name": "Tower", "position": [899, 299]},
+    {"name": "Merchant", "position": [145, 418]},
+    {"name": "Heroic Chest", "position": [231, 594]},
+    {"name": "Gifts", "position": [727, 724]},
+    {"name": "Daily Quests", "position": [226, 194]},
+    {"name": "Mail", "position": [226, 242]},
+    {"name": "Special Events", "position": [229, 287]},
+    {"name": "Season", "position": [227, 334]}
+  ],
+  "Campaign Controls": [
     {"name": "reload", "position": [95, 64]},
     {"name": "closeAdd", "position": [904, 209]},
     {"name": "closeAdd2", "position": [874, 203]},
-    {"name": "enterCampaign", "position": [361, 446]},
     {"name": "auto", "position": [918, 702]},
     {"name": "battle", "position": [893, 728]},
     {"name": "start", "position": [729, 662]},
@@ -14,7 +28,7 @@
     {"name": "tower_buff_close", "position": [809, 286]},
     {"name": "tower_buff_proceed", "position": [853, 462]}
   ],
-  "cities": [
+  "Campaign Cities": [
     {"name": "outskirtsWill", "chapter": 2, "position": [383, 444], "limited": true, "loot": ["gallahad"]},
     {"name": "Magic Thicket", "chapter": 2, "position": [900, 444], "limited": true, "loot": ["astaroth", "trackersBoots", "sledgehammer"]},
     {"name": "lavafracture", "chapter": 2, "position": [904, 650], "limited": true, "loot": ["aurora"]},
