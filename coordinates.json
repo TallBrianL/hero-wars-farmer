@@ -14,6 +14,9 @@
     {"name": "Special Events", "position": [229, 287]},
     {"name": "Season", "position": [227, 334]}
   ],
+  "Airship Controls" : [
+    {"name": "Valkyrie", "position": [501, 339]}
+  ],
   "Campaign Controls": [
     {"name": "reload", "position": [95, 64]},
     {"name": "closeAdd", "position": [904, 209]},
@@ -61,7 +64,7 @@
     {"name": "mistyCliff", "chapter": 6, "position": [462, 536], "loot": ["needle", "sirensSongRecipe", "branchOfAntiaris"]},
     {"name": "tarotsArches", "chapter": 6, "position": [319, 409], "loot": ["serenityStone", "trackersBoots", "dragonToothRecipe"]},
     {"name": "bogger", "chapter": 6, "position": [427, 711], "loot": ["funtotem", "skullCrusher", "cainsSeal"]},
-    {"name": "morthchrones", "chapter": 6, "position": [378, 523], "loot": ["rosary", "pastorseal"]},
+    {"name": "morthchrones", "chapter": 6, "position": [378, 523], "loot": ["rosary", "pastorsSeal"]},
 
     {"name": "Break of Times", "chapter":  7, "position": [390, 614], "loot": ["lionArmor", "dragonTooth", "Poleaxe"]},
     {"name": "gnawedbones", "chapter": 7, "position": [278, 497], "loot": ["sage", "crown"]},
@@ -69,6 +72,7 @@
     {"name": "Blood of the Earth", "chapter":  7, "position": [555, 466], "limited": true, "loot": ["astaroth", "desertBlade", "brothers"]},
     {"name": "Mortal Wound", "chapter": 7, "position": [728, 474], "loot": ["staffOfSelenasHalo", "flamingHeart", "skullCrusher"]},
 
-    {"name": "Basalts", "chapter":  8, "position": [563, 456], "loot": ["sacredRosary", "dragonShield", "cosmicTremor"]}
+    {"name": "Basalts", "chapter":  8, "position": [563, 456], "loot": ["sacredRosary", "dragonShield", "cosmicTremor"]},
+    {"name": "Anthracite Palace", "chapter":  8, "position": [396, 447], "loot": ["bookOfProphecies", "pastorsSeal", "needle"]}
   ]
 }
